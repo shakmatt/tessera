@@ -1,6 +1,10 @@
 {
   "name": "app-name-here",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:diazd2/angular-template.git"
+    },
   "dependencies": {},
   "devDependencies": {
     "grunt": "^0.4.1",
