@@ -1,6 +1,6 @@
 ## Synopsis
 
-Template provides all you need to start a new AngularJS project. In order to set up the project, use grunt functions and edit Gruntfile.js. Only app.js and main.js are present. No API's used. Only Bootstrap and font-awesome included in template.
+Template provides all you need to start a new AngularJS project. In order to set up the project, use *grunt function*s and edit *Gruntfile.js*. Only app.js and main.js are present. No API's used. Only Bootstrap and font-awesome included in template.
 
 ## grunt Functions
 
@@ -20,9 +20,9 @@ Template provides all you need to start a new AngularJS project. In order to set
 
 ## Renaming App
 
-Use 'grunt renameapp:newNameForApp'
+Use **grunt renameapp:newNameForApp**
 The script will automatically define the name in the places where it must be replaced.
 
 ## Versioning
 
-Initial version is 0.0.0. Use grunt bump:[type] to version up.
+Initial version is 0.0.0. Use grunt **bump:[type]** to version up.
