@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name AngularTemplateApp.controller:MainCtrl
+ * @name ng-app-here.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the AngularTemplateApp
+ * Controller of the ng-app-here
  */
-angular.module('AngularTemplateApp')
+angular.module('ng-app-here')
 .controller('MainCtrl', [
 	function ($scope) {
 		

@@ -24,10 +24,31 @@ module.exports = function (grunt) {
 		domain: 'domain.me'
 	};
 
+	var newName = '';
+
 	// Define the configuration for all the tasks
 	grunt.initConfig({
 
 		yeoman: appconfig,
+
+		replace: {
+			name: {
+				src: ['app/version.json', 'app/index.html', 'app/scripts/**/*.js', 'bower.json', 'package.json'],
+				overwrite: true,
+				replacements: [{
+					from: 'app-name-here',
+					to: function (match) {
+						return newName;
+					}
+				}, {
+					from: 'ng-app-here',
+					to: function (match) {
+						var name = newName.replace(/-([a-z])/g, function (g) { return g[1].toUpperCase(); });
+						return name + 'App';
+					}
+				}]
+			}
+		},
 
 		// Renames files for browser caching purposes
 		rev: {
@@ -346,6 +367,15 @@ module.exports = function (grunt) {
 
 	});
 
+	grunt.registerTask('renameapp', function (name) {
+		newName = name;
+
+		if (!name) {
+			grunt.fail.warn('Must supply a new name');
+		}
+
+		grunt.task.run(['replace:name']);
+	});
 
 	grunt.registerTask('serve', 'Compile then start web server', function (target) {
 		if (target === 'dist') {

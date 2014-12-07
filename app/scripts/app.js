@@ -2,15 +2,15 @@
 
 /**
  * @ngdoc overview
- * @name AngularTemplateApp
+ * @name ng-app-here
  * @description
- * # AngularTemplateApp
+ * # ng-app-here
  *
  * Main module of the application.
  */
 angular
 
-.module('AngularTemplateApp', [
+.module('ng-app-here', [
 	'ngResource',
 	'ngRoute'
 ])
