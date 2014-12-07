@@ -4,19 +4,19 @@ Template provides all you need to start a new AngularJS project. In order to set
 
 ## grunt Functions
 
-grunt deploy:dev
-grunt deploy:test
-grunt deploy:prod
-grunt deployopen:dev
-grunt deployopen:test
-grunt deployopen:prod
-grunt bump:pre
-grunt bump:bug
-grunt bump:minor
-grunt bump:major
-grunt serve
-grunt build
-grunt (by default will run jshint and grunt build)
+* grunt deploy:dev
+* grunt deploy:test
+* grunt deploy:prod
+* grunt deployopen:dev
+* grunt deployopen:test
+* grunt deployopen:prod
+* grunt bump:pre
+* grunt bump:bug
+* grunt bump:minor
+* grunt bump:major
+* grunt serve
+* grunt build
+* grunt (by default will run jshint and grunt build)
 
 ## Renaming App
 
