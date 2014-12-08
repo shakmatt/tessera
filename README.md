@@ -26,3 +26,7 @@ The script will automatically define the name in the places where it must be rep
 ## Versioning
 
 Initial version is 0.0.0. Use grunt **bump:[type]** to version up.
+
+## Update repository URL
+
+Use **git remote add origin [SSH URL to repository]**
