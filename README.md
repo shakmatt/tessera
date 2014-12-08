@@ -29,4 +29,4 @@ Initial version is 0.0.0. Use grunt **bump:[type]** to version up.
 
 ## Update repository URL
 
-Use **git remote add origin [SSH URL to repository]**
+Use **git remote set-url origin [SSH URL to repository]**
