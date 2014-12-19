@@ -84,7 +84,7 @@ module.exports = function (grunt) {
 			},
 			bower: {
 				files: ['<%= yeoman.app %>/bower_components/**/*'],
-				tasks: ['bowerInstall'],
+				tasks: ['wiredep'],
 				options: {
 					livereload: true
 				}
@@ -159,7 +159,7 @@ module.exports = function (grunt) {
 			}
 		},
 
-		bowerInstall: {
+		wiredep: {
 			target: {
 				src: ['<%= yeoman.app %>/index.html']
 			}
@@ -304,7 +304,7 @@ module.exports = function (grunt) {
 			}
 		},
 
-		ngmin: {
+		ngAnnotate: {
 			dist: {
 				files: [{
 					expand: true,
@@ -384,7 +384,7 @@ module.exports = function (grunt) {
 
 		grunt.task.run([
 			'clean:server',
-			'bowerInstall',
+			'wiredep',
 			'less:development',
 			'concurrent:server',
 			'autoprefixer',
@@ -400,13 +400,13 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('build', [
 		'clean:dist',
-		'bowerInstall',
+		'wiredep',
 		'less:development',
 		'useminPrepare',
 		'concurrent:dist',
 		'autoprefixer',
 		'concat',
-		'ngmin',
+		'ngAnnotate',
 		'copy:dist',
 		'cssmin',
 		'uglify',
