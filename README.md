@@ -1,6 +1,7 @@
 ## Synopsis
 
 Template provides all you need to start a new AngularJS project. In order to set up the project, use *grunt function*s and edit *Gruntfile.js*. Only app.js and main.js are present. No API's used. Only Bootstrap and font-awesome included in template.
+You will need nodejs and npm installed, as well as grunt, grunt-cli and bower
 
 ## grunt Functions
 
