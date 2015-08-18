@@ -5,7 +5,16 @@
 		<link rel='stylesheet' href='/stylesheets/style.css' />
 	</head>
 	<body>
-		<audio src="/images/backgroundSound.mp3" controls></audio>
+		<audio src="/images/backgroundSound.mp3" autoplay loop preload="metadata" volume="0.5" type="audio/mpeg"></audio>
+		<!-- <audio src="/images/chest.mp3" type="audio/mpeg" ></audio> -->
 		
 	</body>
+
+	<script type="text/javascript">
+		document.addEventListener("click", function(e){var audio = new Audio("/images/chest.mp3"); audio.play();});
+	</script>
 </html>
+
+<!-- For playing sounds at the same time
+http://www.storiesinflight.com/html5/audio.html
+ -->

@@ -2,7 +2,7 @@ setTimeout(
   function() 
   {
 
-var selector = 'canvas' // Replace this with the selector for the element you want to make transformable
+var selector = 'canvas#canvas-1' // Replace this with the selector for the element you want to make transformable
 
 
 jQuery.getScript('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js', function() {
@@ -143,7 +143,7 @@ makeTransformable(selector);
 
 });
 });
-}, 500);
+}, 1000);
 //260
 
 /* Original Code
