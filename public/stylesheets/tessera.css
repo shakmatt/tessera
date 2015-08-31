@@ -1,0 +1,153 @@
+html body{
+	margin:0px;
+	padding:0px;
+	width:100%;
+	height:100%;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.bodyContent{
+	display: inline-block;
+	height: 100%;
+	margin:-2px;
+	padding:0px;
+	position: relative;
+}
+#canvas-1{
+	position:absolute;
+	/*margin: 142px 0px 0px 456px;*/
+	opacity:0.5;
+}
+img{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+#foreGround{
+	z-index: 6;
+	/*transform: translateZ(-400px) scale(1.1);*/
+}
+#midGround{
+	z-index: 5;
+	/*transform: translateZ(600px) scale(0.90);*/
+}
+video{
+	position: absolute;
+	z-index: 10;
+	transform: rotateY(7deg);
+	opacity:0.82;
+}
+#scrollBody{
+	perspective: 4000px;
+}
+#scrollSection{
+	transform-style: preserve-3d;
+}
+a{
+	margin-left: 25px;
+	font-size: 16px;
+	font-weight: bold;
+}
+h2{
+	display: inline;
+	margin-left: 25px;
+}
+canvas{
+	position: absolute;
+	z-index: 4;
+}
+#backgroundMusic{
+	float: right;
+	/*height: 24px;*/
+}
+.scrollArrow{
+	position: absolute;
+	background-color: #48484E;
+	z-index: 10;
+	font-size: 65px;
+	margin-top: 26%;
+	border-radius: 18px;
+	cursor: pointer;
+	padding: 3px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.cursorPointer{
+	cursor:move;
+}
+#div_menu{
+	height: 30px;
+}
+#video-controls{
+	float: right;
+	width: 280px;
+}
+#seek-bar{
+	width: 100px;
+}
+#volume-bar{
+	width:50px;
+}
+.displayNone{
+	display: none;
+}
+#countdown{
+	margin-top: 47%;
+	margin-left: 20%;
+	width: 64%;
+	height: 8%;
+	/*background-color: blue;*/
+	position: absolute;
+}
+.countdownBox{
+	/*background-color: green;*/
+	height: 100%;
+	display: inline-block;
+	background: url('/images/numbers3.jpg') no-repeat;
+	background-size: 919px 188px;
+	background-position: -17px -96px;
+	opacity: 0.5;
+	border-radius: 21px;
+}
+/*.backgroundPosNull{
+	background-position: -17px -96px;
+}
+.backgroundPos0{
+	background-position:-87px -96px;
+}
+.backgroundPos1{
+	background-position:-155px -96px;
+}
+.backgroundPos2{
+	background-position:-223px -96px;
+}
+.backgroundPos3{
+	background-position:-291px -96px;
+}
+.backgroundPos4{
+	background-position:-359px -96px;
+}
+.backgroundPos5{
+	background-position:-428px -96px;
+}
+.backgroundPos6{
+	background-position:-495px -96px;
+}
+.backgroundPos7{
+	background-position:-562px -96px;
+}
+.backgroundPos8{
+	background-position:-630px -96px;
+}
+.backgroundPos9{
+	background-position:-700px -96px;
+}*/

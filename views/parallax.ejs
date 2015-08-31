@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<script src="/javascripts/jquery.js"></script>
+		<script src="/javascripts/codemirror.js"></script>
+		<!--<script src="/javascripts/scripts.js"></script>-->
+		<script type="text/paperscript" canvas="canvas-1" src="/javascripts/paperscript.js"></script>
+		<link rel="stylesheet" href="/stylesheets/tessera.css"/>
+	</head>
+	<body>
+		<div id="div_menu">
+			<h2>TESSERA</h2>
+			<a href="#first">Video</a>
+			<a href="#third">Picture</a>
+			<a href="#fifth">Window</a>
+			<!-- <audio src="/images/backgroundSound.mp3" autoplay loop preload="metadata" type="audio/mpeg" id='backgroundMusic' controls></audio> -->
+			<div id="video-controls">
+				<button type="button" id="play-pause">Play</button>
+				<input type="range" id="seek-bar" value="0">
+				<button type="button" id="mute">Mute</button>
+				<input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+			</div>
+		</div>
+		<div class="scrollArrow" style="margin-left:1%;" onclick="scroll(event, 0);"> < </div>
+		<div class="scrollArrow" style="margin-left:95%;" onclick="scroll(event, 1);"> > </div>
+
+		<canvas id="testCanvas"></canvas>
+
+		<div style="overflow-x:scroll; overflow-y:hidden;" id="scrollBody">
+			<div id="scrollSection" style="background: url('/images/homepageBG.png') no-repeat;	background-size: cover;">
+				<div id="first" class="bodyContent">
+					<img src="/images/homepageMG.png" id="midGround" />
+					<img src="/images/homepageFG.png" id="foreGround" />
+					<video id="video">
+						<source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div id="second" class="bodyContent"></div>
+				<div id="third" class="bodyContent">
+					<canvas resize="true" id="canvas-1"></canvas>
+				</div>
+				<div id="fourth" class="bodyContent"></div>
+				<div id="fifth" class="bodyContent"></div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			//Give the picture canvas its sizes
+			var pageWidth = (window.innerHeight * 3840 * .98)/ 544;
+
+			var t = document.getElementById('canvas-1');
+			t.width = (pageWidth/5) * 0.26933743464015203;
+			t.height = t.width * 1.034776119402985;
+			t.style.marginLeft = 0.3666205080474906 * (pageWidth/5) + "px";
+			t.style.marginTop = 0.1141669125937361 * (pageWidth/5) + "px";
+
+		</script>
+		<script src="/javascripts/paper-full.min.js"></script>
+		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
+		<script type="text/javascript" src="/javascripts/proton.js"></script>
+		<script type="text/javascript" src="/javascripts/videocontrol.js"></script>
+		<script type="text/javascript" src="/javascripts/mouseWheel.js"></script>
+		<script type="text/javascript" src="/javascripts/tessera.js"></script>
+
+		<script type="text/javascript">
+			var audio = new Audio("/images/chest.mp3");
+			document.addEventListener("click", function(e){audio.play();});
+		</script>
+		<script type="text/javascript" src="/javascripts/dustEffect.js"></script>
+	</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<script src="/javascripts/jquery.js"></script>
+		<script src="/javascripts/paper-full.min.js"></script>
+		<script src="/javascripts/codemirror.js"></script>
+		<script type="text/paperscript" canvas="canvas-1" src="/javascripts/paperscript.js"></script>
+
+		<style type="text/css">
+			html body{
+				margin:0px;
+				padding:0px;
+				width:100%;
+				height:100%;
+			}
+
+			.bodyContent{
+				display: inline-block;
+				height: 100%;
+				margin:-2px;
+				padding:0px;
+				position: relative;
+			}
+			#canvas-1{
+				position:absolute;
+				margin: 88px 0px 0px 394px;
+				opacity:0.5;
+			}
+			img{
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			#fore{
+				z-index: 6;
+				transform: translateZ(-400px) scale(1.04);
+			}
+			#mid{
+				z-index: 5;
+				transform: translateZ(600px) scale(0.90);
+			}
+			video{
+				position: absolute;
+				margin-top: 150px;
+				margin-left: 450px;
+				z-index: 7;
+				transform: rotateY(21deg);
+			}
+			#scrollBody{
+				perspective: 4000px;
+			}
+			#scrollSection{
+				transform-style: preserve-3d;
+			}
+			a{
+				margin-left: 25px;
+				font-size: 16px;
+				font-weight: bold;
+			}
+			h2{
+				display: inline;
+				margin-left: 25px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="div_menu"><h2>TESSERA</h2><a href="#first">Video</a><a href="#third">Picture</a><a href="#fifth">Window</a></div>
+		<div style="overflow-x:scroll; overflow-y:hidden;" id="scrollBody" >
+			<div id="scrollSection" style="background: url('/images/homepageBG.png') no-repeat;	background-size: cover;">
+				<div id="first" class="bodyContent">
+					<img src="/images/homepageFG.png" id="fore">
+					<img src="/images/homepageMG.png" id="mid">
+					<video width="850px" height="450px" controls>
+						<source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div id="second" class="bodyContent"></div>
+				<div id="third" class="bodyContent">
+					<canvas resize="true" id="canvas-1" width="440" height="461"></canvas>
+				</div>
+				<div id="fourth" class="bodyContent"></div>
+				<div id="fifth" class="bodyContent"></div>
+			</div>
+		</div>
+
+		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
+		<script type="text/javascript">
+			/*!
+			* jQuery Mousewheel 3.1.13
+			*
+			* Copyright 2015 jQuery Foundation and other contributors
+			* Released under the MIT license.
+			* http://jquery.org/license
+			*/
+			!function(a){"function"==typeof define&&define.amd?define(["jquery"],a):"object"==typeof exports?module.exports=a:a(jQuery)}(function(a){function b(b){var g=b||window.event,h=i.call(arguments,1),j=0,l=0,m=0,n=0,o=0,p=0;if(b=a.event.fix(g),b.type="mousewheel","detail"in g&&(m=-1*g.detail),"wheelDelta"in g&&(m=g.wheelDelta),"wheelDeltaY"in g&&(m=g.wheelDeltaY),"wheelDeltaX"in g&&(l=-1*g.wheelDeltaX),"axis"in g&&g.axis===g.HORIZONTAL_AXIS&&(l=-1*m,m=0),j=0===m?l:m,"deltaY"in g&&(m=-1*g.deltaY,j=m),"deltaX"in g&&(l=g.deltaX,0===m&&(j=-1*l)),0!==m||0!==l){if(1===g.deltaMode){var q=a.data(this,"mousewheel-line-height");j*=q,m*=q,l*=q}else if(2===g.deltaMode){var r=a.data(this,"mousewheel-page-height");j*=r,m*=r,l*=r}if(n=Math.max(Math.abs(m),Math.abs(l)),(!f||f>n)&&(f=n,d(g,n)&&(f/=40)),d(g,n)&&(j/=40,l/=40,m/=40),j=Math[j>=1?"floor":"ceil"](j/f),l=Math[l>=1?"floor":"ceil"](l/f),m=Math[m>=1?"floor":"ceil"](m/f),k.settings.normalizeOffset&&this.getBoundingClientRect){var s=this.getBoundingClientRect();o=b.clientX-s.left,p=b.clientY-s.top}return b.deltaX=l,b.deltaY=m,b.deltaFactor=f,b.offsetX=o,b.offsetY=p,b.deltaMode=0,h.unshift(b,j,l,m),e&&clearTimeout(e),e=setTimeout(c,200),(a.event.dispatch||a.event.handle).apply(this,h)}}function c(){f=null}function d(a,b){return k.settings.adjustOldDeltas&&"mousewheel"===a.type&&b%120===0}var e,f,g=["wheel","mousewheel","DOMMouseScroll","MozMousePixelScroll"],h="onwheel"in document||document.documentMode>=9?["wheel"]:["mousewheel","DomMouseScroll","MozMousePixelScroll"],i=Array.prototype.slice;if(a.event.fixHooks)for(var j=g.length;j;)a.event.fixHooks[g[--j]]=a.event.mouseHooks;var k=a.event.special.mousewheel={version:"3.1.12",setup:function(){if(this.addEventListener)for(var c=h.length;c;)this.addEventListener(h[--c],b,!1);else this.onmousewheel=b;a.data(this,"mousewheel-line-height",k.getLineHeight(this)),a.data(this,"mousewheel-page-height",k.getPageHeight(this))},teardown:function(){if(this.removeEventListener)for(var c=h.length;c;)this.removeEventListener(h[--c],b,!1);else this.onmousewheel=null;a.removeData(this,"mousewheel-line-height"),a.removeData(this,"mousewheel-page-height")},getLineHeight:function(b){var c=a(b),d=c["offsetParent"in a.fn?"offsetParent":"parent"]();return d.length||(d=a("body")),parseInt(d.css("fontSize"),10)||parseInt(c.css("fontSize"),10)||16},getPageHeight:function(b){return a(b).height()},settings:{adjustOldDeltas:!0,normalizeOffset:!0}};a.fn.extend({mousewheel:function(a){return a?this.bind("mousewheel",a):this.trigger("mousewheel")},unmousewheel:function(a){return this.unbind("mousewheel",a)}})});
+
+			$(function() {
+				$("#scrollBody").mousewheel(function(event, delta) {
+					this.scrollLeft -= (delta * 50);
+					event.preventDefault();					
+				});
+			});
+		</script>
+	</body>
+	<script type="text/javascript">
+			var pageWidth = (window.innerHeight * 3840 * .98)/ 544;
+			var pageHeight = (window.innerHeight* .95);
+
+			document.getElementById('scrollSection').style.backgroundSize = pageWidth + "px " + pageHeight +"px";
+			document.getElementById('scrollSection').style.width = pageWidth +"px";
+			document.getElementById('scrollSection').style.height = pageHeight + "px";
+
+			document.images[0].style.width = pageWidth +"px";
+			document.images[1].style.width = pageWidth +"px";
+
+			document.getElementById("first").style.width = (pageWidth/5) + "px";
+			document.getElementById("second").style.width = (pageWidth/5) + "px";
+			document.getElementById("third").style.width = (pageWidth/5) + "px";
+			document.getElementById("fourth").style.width = (pageWidth/5) + "px";
+			document.getElementById("fifth").style.width = (pageWidth/5) + "px";
+
+			function load(){
+			// $( document ).ready(function() {
+				window.location.hash="#third";
+				// window.scrollTo((pageWidth*2/5), 0);
+			
+			}
+			load();
+		</script>
+		<audio src="/images/backgroundSound.mp3" autoplay loop preload="metadata" volume="0.1" type="audio/mpeg" id='backgroundMusic'></audio>
+		<script type="text/javascript">
+			document.getElementById('backgroundMusic').volume=0.3;
+			document.addEventListener("click", function(e){var audio = new Audio("/images/chest.mp3");audio.play();});
+		</script>
+	
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+
+		<style type="text/css">
+			html body{
+				margin:0px;
+				padding:0px;
+				width:100%;
+				height:100%;
+			}
+
+			.bodyContent{
+				display: inline-block;
+				height: 100%;
+				margin:-2px;
+				padding:0px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="div_menu"><a href="#first">First</a><a href="#second">Second</a><a href="#third">Third</a><a href="#fourth">Fourth</a><a href="#fifth">Fifth</a></div>
+		<div style="overflow-x:hidden;" id="scrollBody" >
+			<div id="scrollSection" style="background: url('/images/homepageBG.png') no-repeat;	background-size: cover;">
+				<div id="first" class="bodyContent" style="background-color: blue; opacity: 0.4;"></div>
+				<div id="second" class="bodyContent" style="background-color: green; opacity: 0.4;"></div>
+				<div id="third" class="bodyContent" style="background-color: chocolate; opacity: 0.4;"></div>
+				<div id="fourth" class="bodyContent" style="background-color: slateblue; opacity: 0.4;"></div>
+				<div id="fifth" class="bodyContent" style="background-color: azure; opacity: 0.4;"></div>
+			</div>
+		</div>
+
+		<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
+		<script type="text/javascript">
+			/*!
+			* jQuery Mousewheel 3.1.13
+			*
+			* Copyright 2015 jQuery Foundation and other contributors
+			* Released under the MIT license.
+			* http://jquery.org/license
+			*/
+			!function(a){"function"==typeof define&&define.amd?define(["jquery"],a):"object"==typeof exports?module.exports=a:a(jQuery)}(function(a){function b(b){var g=b||window.event,h=i.call(arguments,1),j=0,l=0,m=0,n=0,o=0,p=0;if(b=a.event.fix(g),b.type="mousewheel","detail"in g&&(m=-1*g.detail),"wheelDelta"in g&&(m=g.wheelDelta),"wheelDeltaY"in g&&(m=g.wheelDeltaY),"wheelDeltaX"in g&&(l=-1*g.wheelDeltaX),"axis"in g&&g.axis===g.HORIZONTAL_AXIS&&(l=-1*m,m=0),j=0===m?l:m,"deltaY"in g&&(m=-1*g.deltaY,j=m),"deltaX"in g&&(l=g.deltaX,0===m&&(j=-1*l)),0!==m||0!==l){if(1===g.deltaMode){var q=a.data(this,"mousewheel-line-height");j*=q,m*=q,l*=q}else if(2===g.deltaMode){var r=a.data(this,"mousewheel-page-height");j*=r,m*=r,l*=r}if(n=Math.max(Math.abs(m),Math.abs(l)),(!f||f>n)&&(f=n,d(g,n)&&(f/=40)),d(g,n)&&(j/=40,l/=40,m/=40),j=Math[j>=1?"floor":"ceil"](j/f),l=Math[l>=1?"floor":"ceil"](l/f),m=Math[m>=1?"floor":"ceil"](m/f),k.settings.normalizeOffset&&this.getBoundingClientRect){var s=this.getBoundingClientRect();o=b.clientX-s.left,p=b.clientY-s.top}return b.deltaX=l,b.deltaY=m,b.deltaFactor=f,b.offsetX=o,b.offsetY=p,b.deltaMode=0,h.unshift(b,j,l,m),e&&clearTimeout(e),e=setTimeout(c,200),(a.event.dispatch||a.event.handle).apply(this,h)}}function c(){f=null}function d(a,b){return k.settings.adjustOldDeltas&&"mousewheel"===a.type&&b%120===0}var e,f,g=["wheel","mousewheel","DOMMouseScroll","MozMousePixelScroll"],h="onwheel"in document||document.documentMode>=9?["wheel"]:["mousewheel","DomMouseScroll","MozMousePixelScroll"],i=Array.prototype.slice;if(a.event.fixHooks)for(var j=g.length;j;)a.event.fixHooks[g[--j]]=a.event.mouseHooks;var k=a.event.special.mousewheel={version:"3.1.12",setup:function(){if(this.addEventListener)for(var c=h.length;c;)this.addEventListener(h[--c],b,!1);else this.onmousewheel=b;a.data(this,"mousewheel-line-height",k.getLineHeight(this)),a.data(this,"mousewheel-page-height",k.getPageHeight(this))},teardown:function(){if(this.removeEventListener)for(var c=h.length;c;)this.removeEventListener(h[--c],b,!1);else this.onmousewheel=null;a.removeData(this,"mousewheel-line-height"),a.removeData(this,"mousewheel-page-height")},getLineHeight:function(b){var c=a(b),d=c["offsetParent"in a.fn?"offsetParent":"parent"]();return d.length||(d=a("body")),parseInt(d.css("fontSize"),10)||parseInt(c.css("fontSize"),10)||16},getPageHeight:function(b){return a(b).height()},settings:{adjustOldDeltas:!0,normalizeOffset:!0}};a.fn.extend({mousewheel:function(a){return a?this.bind("mousewheel",a):this.trigger("mousewheel")},unmousewheel:function(a){return this.unbind("mousewheel",a)}})});
+
+			$(function() {
+				$("#scrollBody").mousewheel(function(event, delta) {
+					this.scrollLeft -= (delta * 50);
+					event.preventDefault();					
+				});
+			});
+		</script>
+	</body>
+	<script type="text/javascript">
+			var pageWidth = (window.innerHeight * 3840 * .98)/ 544;
+			var pageHeight = (window.innerHeight* .95);
+
+			document.getElementById('scrollSection').style.backgroundSize = pageWidth + "px " + pageHeight +"px";
+			document.getElementById('scrollSection').style.width = pageWidth +"px";
+			document.getElementById('scrollSection').style.height = pageHeight + "px";
+
+			document.getElementById("first").style.width = (pageWidth/5) + "px";
+			document.getElementById("second").style.width = (pageWidth/5) + "px";
+			document.getElementById("third").style.width = (pageWidth/5) + "px";
+			document.getElementById("fourth").style.width = (pageWidth/5) + "px";
+			document.getElementById("fifth").style.width = (pageWidth/5) + "px";
+
+			function load(){
+				window.location.hash="#third"; 
+			}
+			load();
+		</script>
+</html>
+	 -->

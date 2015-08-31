@@ -30,4 +30,28 @@ router.get('/drag', function(req, res, next){
 	res.render('drag', { title: 'Drag'});
 });
 
+router.get('/proton', function(req, res, next){ 
+	res.render('proton', { title: 'Proton'});
+});
+
+router.get('/horizontal', function(req, res, next){ 
+	res.render('horizontal', { title: 'Horizontal'});
+});
+
+router.get('/parallax', function(req, res, next){ 
+	res.render('parallax', { title: 'Parallax'});
+});
+
+router.get('/partest', function(req, res, next){ 
+	res.render('partest', { title: 'Partest'});
+});
+
+router.get('/slide', function(req, res, next){ 
+	res.render('slide', { title: 'Slide'});
+});
+
+router.get('/tessera', function(req, res, next){ 
+	res.render('tessera', { title: 'Tessera'});
+});
+
 module.exports = router;
