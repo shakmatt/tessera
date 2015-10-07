@@ -8,8 +8,6 @@
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 		<!-- build:css(.) styles/vendor.css -->
 		<!-- bower:css -->
-		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
 		<!-- endbower -->
 		<!-- endbuild -->
 		<!-- build:css(.tmp) styles/main.css -->
@@ -24,12 +22,16 @@
 		<!-- Add your site or application content here -->
 		<div class="container">
 			<div class="header">
-				<h3 class="text-muted">tessera</h3>
+				<div class="navbar">
+					<!-- Navbar -->
+				</div>
 			</div>
 
 			<div ng-view=""></div>
 
-			<div class="footer">{{version}}</div>
+			<div class="footer">
+				<div class="version">{{version}}</div>
+			</div>
 		</div>
 
 		<!-- build:js(.) scripts/oldieshim.js -->
