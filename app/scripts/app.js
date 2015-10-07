@@ -2,15 +2,15 @@
 
 /**
  * @ngdoc overview
- * @name ng-app-here
+ * @name tesseraApp
  * @description
- * # ng-app-here
+ * # tesseraApp
  *
  * Main module of the application.
  */
 angular
 
-.module('ng-app-here', [
+.module('tesseraApp', [
 	'ngResource',
 	'ngRoute'
 ])

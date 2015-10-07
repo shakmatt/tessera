@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name ng-app-here.controller:MainCtrl
+ * @name tesseraApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the ng-app-here
+ * Controller of the tesseraApp
  */
-angular.module('ng-app-here')
+angular.module('tesseraApp')
 .controller('MainCtrl', [
 	function ($scope) {
 		
